@@ -5,7 +5,7 @@ import Home from './components/Home';
 
 function App() {
   return (
-    <Router basename="/gitcheck">
+    <Router>
       <div className="app">
         <Routes>
           <Route path="/" element={<Login />} />
