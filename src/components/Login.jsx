@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +16,7 @@ const Login = () => {
     }
     console.log('Login successful', { email, password });
     setError('');
-    alert('Login successful! Check console for details.');
+    navigate('/home');
   };
 
   return (
@@ -21,7 +24,7 @@ const Login = () => {
       <div className="login-card">
         <h2>Welcome Back</h2>
         <p className="subtitle">Please sign in to continue</p>
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -33,7 +36,7 @@ const Login = () => {
               placeholder="Enter your email"
             />
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
